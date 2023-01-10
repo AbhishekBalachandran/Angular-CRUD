@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="alert alert-warning mt-5" *ngIf="errors">
+        <h3>Error Occured</h3>
+        <p>{{ errors }}</p>
+      </div>
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <h1>Delete Medicine</h1>
+            <div class="card" style="width: 18rem;  margin: 21px;">
+                <div class="card-body">
+                    <h2>{{ selectedMedicineDetails?.name }}</h2>
+                    <h4>{{ selectedMedicineDetails?.company }}</h4>
+                    <h4>{{ selectedMedicineDetails?.expiry_date }}</h4>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" routerLink="/home">Home</button>&nbsp;
+            <button class="btn btn-danger" (click)="delete()">Delete</button>
+        </div>
+    </div>
+</div>

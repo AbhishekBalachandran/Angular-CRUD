@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row mt-4 text-center">
+        <div class="col-md-12">
+            <h1>Create Medicine</h1>
+            <hr>
+            <div class="alert alert-danger" *ngIf="errors">
+                <h3>Error Occured</h3>
+                <p>{{ errors }}</p>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="medicineForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" formControlName="name" class="form-control">
+                    <!-- error -->
+                    <span
+                    *ngIf="medicineForm.get('name').invalid && medicineForm.get('name').touched"
+                    class="help-block text-danger"
+                    >Required</span>                
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" formControlName="company" class="form-control">
+                    <!-- error -->
+                    <span
+                    *ngIf="medicineForm.get('company').invalid && medicineForm.get('company').touched"
+                    class="help-block text-danger"
+                    >Required</span> 
+                </div>
+
+                <div class="form-group">
+                    <label for="expiry_date">Expiry Date</label>
+                    <input type="date" id="expiry_date" formControlName="expiry_date" class="form-control">
+                    <!-- error -->
+                    <span
+                    *ngIf="medicineForm.get('expiry_date').invalid && medicineForm.get('expiry_date').touched"
+                    class="help-block text-danger"
+                    >Required</span>                 
+                </div>
+            </form>
+            <button class="btn btn-success btn-block"  [disabled]="medicineForm.invalid" (click)="create()">Create Medicine</button>
+            <button class="btn btn-primary btn-block" routerLink="/home">Back to Home</button>&nbsp;
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                  <div class="mt-3">
+                    <h2 class="text-center">Login</h2>
+                    <hr>
+                    <div class="alert alert-danger" *ngIf="errors">
+                      <strong>An Error Occurred : </strong>{{ errors }}
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" ngModel #email="ngModel" name="email" required>
+                    <span
+                    *ngIf="!email.valid && email.touched"
+                    class="help-block text-danger"
+                    >Enter a valid email</span
+                  >
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label">Password</label>
+                      <input type="password" class="form-control" id="password" ngModel #password="ngModel" name="password" required>
+                      <span
+                        *ngIf="!password.valid && password.touched"
+                      class="help-block text-danger"
+                    >Password required</span
+                  >
+                    </div>
+                  <button type="submit" class="btn btn-success btn-block" [disabled]="!loginForm.valid">Login</button>
+                </form>
+                <a routerLink="/signup" class="text-center mt-3">New user? Register here.</a>
+            </div>
+        </div>
+    </div>
+</div>
